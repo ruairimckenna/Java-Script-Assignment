@@ -1,0 +1,22 @@
+/* The CSS for the "Study" page */
+
+body {
+    margin:0;
+    background-color: #1b5e20;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+#chart-image {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Styles for the "Train" page */
+
