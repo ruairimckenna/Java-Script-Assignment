@@ -32,3 +32,9 @@ prevBtn.addEventListener("click", function() {
     chartImage.src = charts[currentIndex];
 });
 
+
+
+
+
+// "Train" page JavaScript //
+
