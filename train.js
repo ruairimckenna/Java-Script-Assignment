@@ -93,37 +93,72 @@ const p5Hands = [
 // Table section highlight
 const sections = document.querySelectorAll(".table-section");
 
-sections.forEach(section => {
-    section.addEventListener("click", () => {
-        sections.forEach(s => s.classList.remove("active"));
-        section.classList.add("active");
+let currentRange = p1Hands; // Default to P1 //
+let currentSection = document.getElementById("P1"); // Default highlighted circle //
 
-        // Use for quiz answers later
+function selectSection(section) {
+    sections.forEach(s => s.classList.remove("active"));
+    section.classList.add("active");
 
-    });
-});
+        switch (section.id) {
+            case "P1":
+                currentRange = p1Hands;
+                break;
+            case "P2":
+                currentRange = p2Hands;
+                break;
+            case "P3":
+                currentRange = p3Hands;
+                break;
+            case "P4":
+                currentRange = p4Hands;
+                break;
+            case "P5":
+                currentRange = p5Hands;
+                break;
+        }
+    }
+
+    selectSection(currentSection);
+
+    sections.forEach(section => {
+        section.addEventListener("click", () =>
+            selectSection(section));
+        });
+
 
 // Button functionality placeholders
-// Next Hand button aka Random Hand Generator //
 const nextHandBtn = document.getElementById("next-hand");
 const cardDisplay = document.getElementById("card-display");
+const playBtn = document.getElementById("play");
+const foldBtn = document.getElementById("fold");
+const resultDisplay = document.getElementById("theanswer-box");
+const scoreDisplay = document.getElementById("score-box");
+
+let score = 0
+let currentHand = "";
 
 nextHandBtn.addEventListener("click", function() {
     const randomIndex = Math.floor(Math.random() * allHands.length);
-    const randomHand = allHands[randomIndex];
-    cardDisplay.textContent = randomHand;
-    console.log("Next Hand clicked: " + randomHand);
+    currentHand = allHands[randomIndex];
+    cardDisplay.textContent = currentHand;
+    console.log("Next Hand clicked: " + currentHand);
+    resultDisplay.textContent = "";
 });
+
+function checkAnswer(userChoice) {
+    const shouldPlay = currentRange.includes(currentHand);
+    if ((userChoice === "play" && shouldPlay) || (userChoice === "fold" && !shouldPlay)) {
+        resultDisplay.textContent = "Correct!";
+        score++;
+    } else {
+        resultDisplay.textContent = "Incorrect!";
+    }
+    scoreDisplay.textContent = "Score: " + score;
+}
+
 
 // Play and Fold buttons //
-
-const playBtn = document.getElementById("play");
-const foldBtn = document.getElementById("fold");
-
-
-nextHandBtn.addEventListener("click", () => {
-    console.log("Next Hand clicked");
-});
 
 playBtn.addEventListener("click", () => {
     console.log("Play clicked");
