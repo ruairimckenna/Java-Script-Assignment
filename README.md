@@ -72,6 +72,21 @@ Assignment Idea: Texas Hold'em Poker ("Poker") Trainer
      
 
 
+
+
+
+
+HALF WAY NOTE:
+
+Everything is now functional. Some things which I need to fix before submission are as follows:
+1. The P1-5 seat selectors end up way off when the window is split screen. 
+2. I want the score to count how many rounds the user has played also
+3. The play fold buttons aren't centered
+4. The fonts are poorly visible.
+5. The white background on the table looks horrific
+6. Major change: I would like to see if I can get obviate the need to hit "Next Hand" each time, whilst still clearly indicating
+that the previous answer was correct/incorrect. 
+7. Do up the general presentation of the page, adding footers etc. 
     
 
 

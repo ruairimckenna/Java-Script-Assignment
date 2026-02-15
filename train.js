@@ -147,6 +147,8 @@ nextHandBtn.addEventListener("click", function() {
 });
 
 function checkAnswer(userChoice) {
+    if (!currentHand) return;
+
     const shouldPlay = currentRange.includes(currentHand);
     if ((userChoice === "play" && shouldPlay) || (userChoice === "fold" && !shouldPlay)) {
         resultDisplay.textContent = "Correct!";
@@ -160,10 +162,8 @@ function checkAnswer(userChoice) {
 
 // Play and Fold buttons //
 
-playBtn.addEventListener("click", () => {
+playBtn.addEventListener("click", () => checkAnswer("play"))
     console.log("Play clicked");
-});
 
-foldBtn.addEventListener("click", () => {
+foldBtn.addEventListener("click", () => checkAnswer("fold"))
     console.log("Fold clicked");
-});
