@@ -38,3 +38,117 @@ nav a:hover {
 
 /* Styles for the "Train" page */
 
+/* Card combination display box */
+#card-display {
+    width: 200px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 4px solid black;
+    background-color: white;
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Responsive table container */
+#table-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    height: auto;
+}
+
+#table-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Table sections */
+.table-section {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px; /* vertical centering inside circle */
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.table-section.active {
+    background-color: yellow;
+    color: black;
+}
+
+/* Controls container */
+#controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+/* Left button */
+#next-hand {
+    background-color: orange;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Center buttons */
+#play-fold {
+    display: flex;
+    gap: 15px;
+}
+
+#play {
+    background-color: #00ff00; /* bright green */
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#fold {
+    background-color: #ff0000; /* bright red */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Right feedback and score */
+#answer-box {
+    text-align: right;
+}
+
+#theanswer-box {
+    width: 160px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#score-box {
+    width: 160px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
