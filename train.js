@@ -134,11 +134,20 @@ const playBtn = document.getElementById("play");
 const foldBtn = document.getElementById("fold");
 const resultDisplay = document.getElementById("theanswer-box");
 const scoreDisplay = document.getElementById("score-box");
+const timerInput = document.getElementById("timer-input");
+    timerInput.addEventListener("change", () => {
+    decisionTime = parseInt(timerInput.value) || 10;
+    });
 
 let score = 0
 let totalHands = 0;
 let currentHand = "";
 let handActive = false;
+
+// Timer //
+let timer = null;         
+let timeLeft = 0;         
+let decisionTime = 10; 
 
 nextHandBtn.addEventListener("click", function() {
     const randomIndex = Math.floor(Math.random() * allHands.length);
@@ -148,6 +157,24 @@ nextHandBtn.addEventListener("click", function() {
     resultDisplay.textContent = "Your decision is...";
 
     handActive = true;
+
+    if (timer) clearInterval(timer);
+
+    timeLeft = decisionTime;
+    resultDisplay.textContent = `Decision Time: ${timeLeft}s`;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+            resultDisplay.textContent = `Decision Time: ${timeLeft}s`;
+        } else {
+            clearInterval(timer);
+            handActive = false;
+            totalHands++;
+            resultDisplay.textContent = "Too Slow!";
+            scoreDisplay.textContent = `Score: ${score} / ${totalHands}`;
+        }
+    }, 1000);
 });
 
 // Check answer function //
@@ -157,6 +184,8 @@ function checkAnswer(userChoice) {
 
     handActive = false;
     totalHands++;
+
+    if (timer) clearInterval(timer);
 
     const shouldPlay = currentRange.includes(currentHand);
 

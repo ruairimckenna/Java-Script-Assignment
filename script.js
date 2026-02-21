@@ -10,10 +10,10 @@ const charts = [
 ];
 
 let currentIndex = 0;
-
 const chartImage = document.getElementById("chart-image");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
+
 
 nextBtn.addEventListener("click", function() {
     currentIndex = currentIndex + 1;
