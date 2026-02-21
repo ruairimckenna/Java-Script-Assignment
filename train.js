@@ -138,18 +138,24 @@ const scoreDisplay = document.getElementById("score-box");
 let score = 0
 let totalHands = 0;
 let currentHand = "";
+let handActive = false;
 
 nextHandBtn.addEventListener("click", function() {
     const randomIndex = Math.floor(Math.random() * allHands.length);
     currentHand = allHands[randomIndex];
     cardDisplay.textContent = currentHand;
     console.log("Next Hand clicked: " + currentHand);
-    resultDisplay.textContent = "";
+    resultDisplay.textContent = "Your decision is...";
+
+    handActive = true;
 });
 
-function checkAnswer(userChoice) {
-    if (!currentHand) return;
+// Check answer function //
 
+function checkAnswer(userChoice) {
+    if (!handActive) return;
+
+    handActive = false;
     totalHands++;
 
     const shouldPlay = currentRange.includes(currentHand);
@@ -167,7 +173,7 @@ function checkAnswer(userChoice) {
 // Play and Fold buttons //
 
 playBtn.addEventListener("click", () => checkAnswer("play"))
-    console.log("Play clicked");
+    
 
 foldBtn.addEventListener("click", () => checkAnswer("fold"))
-    console.log("Fold clicked");
+    
