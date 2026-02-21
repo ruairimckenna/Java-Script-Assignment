@@ -94,7 +94,7 @@ const p5Hands = [
 const sections = document.querySelectorAll(".table-section");
 
 let currentRange = p1Hands; // Default to P1 //
-let currentSection = document.getElementById("P1"); // Default highlighted circle //
+let currentSection = document.getElementById("P1");
 
 function selectSection(section) {
     sections.forEach(s => s.classList.remove("active"));

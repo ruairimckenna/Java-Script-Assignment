@@ -4,18 +4,16 @@ Java Script Assignment
 Assignment Idea: Texas Hold'em Poker ("Poker") Trainer
 
     Synopsis:
-    My assignment is a quiz/memory trainer for 
-    poker strategy. It focuses on only a very small part of poker strategy - the very first decision that is made in every poker hand that is dealt - whether to "play" with the two cards you've been dealt, or whether to throw them away ("fold").
+    My assignment is a quiz/memory trainer for poker strategy. It focuses on only a very small part of poker strategy - the very first decision that is made in every poker hand that is dealt - whether to "play" with the two cards you've been dealt, or whether to throw them away ("fold").
 
-    The theory behind this is explained in the "background" below, which I've provided for completeness for your interest. The poker theory is complex, but the assignment itself is pretty simple. The user will study a chart/grid for one of the five seating positions (explained below) from the "study" page which tells them what to do with any two cards they are dealt (i.e. whether to play or fold). Then on the "train" page, they select that seat position (which selects one of five datasets). 
+    The theory behind this is explained in the "background" below, which I've provided for completeness for your interest, but isn't necessary for you to read. The poker theory is complex, but the assignment itself is pretty simple. The user will study a chart/grid for one of the five seating positions (explained below) from the "study" page which tells them what to do with any two cards they are dealt (i.e. whether to play or fold). Then on the "train" page, they select that seat position (which selects one of five datasets). 
 
-    Then, they press the "new hand" button, which shows a combination of two cards at the bottom of the screen, chosen at random. The user then has two buttons, "play" or "fold", and must select what to do with the given combination. If they select correctly, the "Correct" prompt shows, and if they don't, the "Incorrect" prompt shows. They then hit "new hand" and the process repeats. I am currently considering a score counter if I have time, but this might prove too complex. 
+    Then, they press the "new hand" button, which shows a combination of two cards at the bottom of the screen, chosen at random. The user then has two buttons, "play" or "fold", and must select what to do with the given combination. If they select correctly, the "Correct" prompt shows, and if they don't, the "Incorrect" prompt shows. They then hit "new hand" and the process repeats. To make sure I complied with the requirements, I added a timer to the decision process which is also a pretty realistic tool, as in online poker you are generally given a set time to decide, and in the real life games its frowned upton to take all day also. 
 
     Background:
                         The charts
     
-    In poker, each player is dealt two cards to start.    
-    Then a decision must be made, whether to: 1: Call, and pay the entry price for the hand (known as "the big blind"); 2. Bet money, and increase the entry price for the hand for the other players; or 3. Fold your cards and save your money. After this round of betting, three more cards are put face up on the table, and these three cards are known as the "flop". 
+    In poker, each player is dealt two cards to start.Then a decision must be made, whether to: 1: Call, and pay the entry price for the hand (known as "the big blind"); 2. Bet money, and increase the entry price for the hand for the other players; or 3. Fold your cards and save your money. After this round of betting, three more cards are put face up on the table, and these three cards are known as the "flop". 
 
     There is no need to explain what happens after the "flop" for the purposes of my explanation. All I am concerned with is the decision described above to call, bet or fold. Most poker strategies advise against ever taking the first option, the "call", as it just shows weakness. Therefore, when a poker player receives their two cards, the smart player has a decision whether to bet/play, or to fold. 
 
@@ -31,64 +29,22 @@ Assignment Idea: Texas Hold'em Poker ("Poker") Trainer
 
     The most advantageous position at the table is the dealer, as the dealer gets to make their decision last in every round of betting (except ironically in the pre-flop round on which my assignment is based, as the dealer is the second last to decide in this round). In every round, deciding first is a disadvantage because you don't have any information on the other players yet, whereas the player who decides last can inform their decision based on what the other players have already done. 
     
-    Very simply, you can play weaker hands when you are seated in a good position, but must only play the strongest hands when sitting in the worst position.
-    This means that multiple charts must be learned to properly play poker, and the more charts you know, statistically the better your decisions will be. 
+    Very simply, you can play weaker hands when you are seated in a good position, but must only play the strongest hands when sitting in the worst position. This means that multiple charts must be learned to properly play poker, and the more charts you know, statistically the better your decisions will be. 
 
     For the sake of simplicity, I have 5 charts for 5 table positions, which can be seen in the way the image of my table is split into 5 on the "Train" page.
 
+    How to use:
+    The page is broken into steps. Opening up the website should take you to the "study" page first. Obviously you mightn't be concerned with learning, but if you keep this page open in a different window, it will guide you through. 
 
+    Once you're satisfied with the charts, click on the train page. 
 
-    ----------------------The Code:-----------------------
+    On the train page, follow the steps. Put in the time in seconds for you to limit your decision time. Then click on one of the P1-P5 circles to select your seat position at the table, with P5 being statistically the hardest position. 
 
-                        The Study Page
-    The basic concept for the study page is to have a slide show with buttons that move to the next image through the gallery. Given that the charts are just five 13 x 13 grids, its really illustrative of the changes in strategy between seat positions if the charts can be viewed like this, as opposed to by scrolling down through the page. 
-
-                        The Train Page
-    The table/seats:
-    The possible complexities are endless with this. The basic idea is that I will have a picture of a table, as viewed from above, which is common in online poker games. 
-    
-    There will be five different positions/seats. The idea is that the user will first select which seat to sit at (i.e. what position they want to practice, which will select one of five datasets). 
-    
-    As explained above, the dealer changes in every hand. In real life, there is a "dealer button" (a big metal coin with "D"/"Dealer" on it) that moves around the table clockwise to represent this. In online poker, the user's icon remains in the same seat, and the dealer button moves around the table, just like in real life. For the purposes of my assignment, I will simply keep the dealer button in the same place, rather than having it move clockwise, and simply have a seat which changes colour or icon, to show the user is sitting there. 
-
-    Behind the scenes, the same action that changes the seat should also select one of five datasets that I have.
-
-    Random card generator:
-    There are 52 cards in a deck, and 169 possible card combinations. My first consideration was to have an array with the 52 cards. One is drawn at random, then another is removed from the 51 cards remaining obviously. However this was complex, as the two cards would have to be recognised for the purposes of the chart and the play/fold buttons. 
-
-    Instead, the easy thing seems to be to have an array with the 169 combinations, which looks something like this {AA, AKo, AQo, AJo, A10o...}. If you're usuing a website like this, it can be assumed that you know what these letters mean. The cards drawn must appear on the screen. 
-
-    The training:
-    The datasets for the training is much different, in that of the 169 combinations, taking the example of position 5, only 24 combinations should be played. 
-    Therefore, in that case, 24 cominations must be remembered as true, and anything other than that can simply be classified as false. 
-
-    I need to have something like If cardDrawn = (one of the 24 combinations in my "play" array) then correctAnswer = play
-    If user selects play, return correct. 
-    Else, return Incorrect.
-
-    Next hand button:
-    Should simply replace the cards on the screen. It must also wipe the displayed "correct/incorrect" message. I must also be careful of the "play/fold" buttons so that they don't destroy everything if clicked out of sequence. 
-    
-     
+    Click "Next Hand", and your card combination should appear in the white box decorated with the card suits. If the card is one of the cards in a green box in the chart for that position, click "play". Otherwise, click "fold". The feedback should appear on the right above the score counter. With each attempt, the score changes. Click "next hand" again to keep going. 
 
 
 
 
-
-
-HALF WAY NOTE:
-
-Everything is now functional. Some things which I need to fix before submission are as follows:
-1. The P1-5 seat selectors end up way off when the window is split screen. 
-2. I want the score to count how many rounds the user has played also
-3. The play fold buttons aren't centered
-4. The fonts are poorly visible.
-5. The white background on the table looks horrific - update: added border
-6. Major change: I would like to see if I can get obviate the need to hit "Next Hand" each time, whilst still clearly indicating
-that the previous answer was correct/incorrect. Also, when I start it says AKo but you can't do anything with it. - Update***
-    Deciding against this, as it wouldn't allow you to look at correct/incorrect. 
-7. Do up the general presentation of the page.
-8. Have the card display box stay the same size as when the opening message is displayed.
     
 
 
