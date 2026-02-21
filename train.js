@@ -136,6 +136,7 @@ const resultDisplay = document.getElementById("theanswer-box");
 const scoreDisplay = document.getElementById("score-box");
 
 let score = 0
+let totalHands = 0;
 let currentHand = "";
 
 nextHandBtn.addEventListener("click", function() {
@@ -149,14 +150,17 @@ nextHandBtn.addEventListener("click", function() {
 function checkAnswer(userChoice) {
     if (!currentHand) return;
 
+    totalHands++;
+
     const shouldPlay = currentRange.includes(currentHand);
+
     if ((userChoice === "play" && shouldPlay) || (userChoice === "fold" && !shouldPlay)) {
         resultDisplay.textContent = "Correct!";
         score++;
     } else {
         resultDisplay.textContent = "Incorrect!";
     }
-    scoreDisplay.textContent = "Score: " + score;
+    scoreDisplay.textContent = "Score: " + score + " / " + totalHands;
 }
 
 
