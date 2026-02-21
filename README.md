@@ -83,10 +83,12 @@ Everything is now functional. Some things which I need to fix before submission 
 2. I want the score to count how many rounds the user has played also
 3. The play fold buttons aren't centered
 4. The fonts are poorly visible.
-5. The white background on the table looks horrific
+5. The white background on the table looks horrific - update: added border
 6. Major change: I would like to see if I can get obviate the need to hit "Next Hand" each time, whilst still clearly indicating
-that the previous answer was correct/incorrect. 
-7. Do up the general presentation of the page, adding footers etc. 
+that the previous answer was correct/incorrect. Also, when I start it says AKo but you can't do anything with it. - Update***
+    Deciding against this, as it wouldn't allow you to look at correct/incorrect. 
+7. Do up the general presentation of the page.
+8. Have the card display box stay the same size as when the opening message is displayed.
     
 
 
